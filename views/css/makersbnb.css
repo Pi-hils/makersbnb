@@ -11,8 +11,30 @@ p {
   text-align: center;
 }
 
-/* .form {
-  width: 150px;
-  margin-left: 10px;
-} */
+#cover {
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 5px;
+}
 
+#cover-caption {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+form:before {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+  z-index: -1;
+  border-radius: 10px;
+}
