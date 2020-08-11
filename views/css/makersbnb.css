@@ -1,0 +1,18 @@
+.heading h1{
+  color:black;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+
+p {
+  color:black;
+  /* font-size: */
+  text-align: center;
+}
+
+/* .form {
+  width: 150px;
+  margin-left: 10px;
+} */
+
