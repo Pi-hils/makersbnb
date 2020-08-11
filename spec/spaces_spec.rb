@@ -7,8 +7,12 @@ describe Space do
   end
 
   it '#add' do
-    space = Space.add(name:)
-    expect(space.name)
+    space = Space.add(name: 'test',
+                      price: 250.00,
+                      description: 'elite housing',
+                      availability_start: '10/08/2020',
+                      availability_end: '17/08/2020', host_id: 1)
+    expect(space.name).to eq('test')
   end
 
 end

@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS "spaces" (
   "description" varchar(280),
   "availability_start" date,
   "availability_end" date,
-  "bookable" boolean default TRUE,
   "host_id" integer,
+  "bookable" boolean default TRUE,
   "published" timestamp default (now() at time zone 'utc')
 );
 

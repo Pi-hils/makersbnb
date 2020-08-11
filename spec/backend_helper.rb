@@ -8,8 +8,8 @@ def generate_example_master
   database.query("INSERT INTO users (name, email, password) VALUES('master', 'master', 'master');")
 end
 
-def generate_example_peeps
-
+def generate_example_space
+  database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('test2','250.00','test','11/08/2020','18/08/2020', '1');")
 end
 
 def generate_example_user_peeps
@@ -34,7 +34,7 @@ end
 def truncate_db
   return unless ENV['RACK_ENV'] == 'test'
 
-  database.query('TRUNCATE user_peeps, threads, users, peeps RESTART IDENTITY')
+  database.query('TRUNCATE user_messages, message, requests, spaces, users RESTART IDENTITY')
 end
 
 

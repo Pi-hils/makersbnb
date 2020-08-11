@@ -4,17 +4,113 @@
       "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/app.rb": {
         "lines": [
           1,
+          1,
+          1,
+          1,
           null,
           1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           0,
           null,
           null,
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_start_script.rb": {
+        "lines": [
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_connection.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/space.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/spec/spaces_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1597139666
+    "timestamp": 1597143576
   }
 }
