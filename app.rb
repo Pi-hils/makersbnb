@@ -1,21 +1,29 @@
 require 'sinatra/base'
+require 'rack-flash'
+require_relative './models/database_start_script'
+require_relative './models/space'
 
 class MakersBnb < Sinatra::Base
+
+  set :static, true
+  enable :sessions, :method_override
+  use Rack::Flash
+
+
   get '/' do
     'Welcome to MakersBnb'
   end
 
   get '/spaces' do
-    erb :'spaces/view_spaces'
+    erb :'view_spaces'
   end
 
+
   get '/spaces/new' do
-    erb :'spaces/new/add_space'
+    erb :'add_space'
   end
 
   post '/spaces/new' do
-    erb :'spaces/new/add_space'
+    erb :'add_space'
   end
-
-  run! if app_file == $0
 end
