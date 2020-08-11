@@ -19,7 +19,7 @@ class Space
                        price: record['price'],
                        description: record['description'],
                        availability_start: record['availability_start'],
-                       availability_end: record[availability_end],
+                       availability_end: record['availability_end'],
                        bookable: record['bookable'],
                        host_id: record['host_id'],
                        published: record['published'])
