@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="../css/makersbnb.css">
+  <link rel="stylesheet" type="text/css" href=".../views/css/makersbnb.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <title>makersbnb</title>
@@ -21,10 +21,10 @@
           <a class="nav-link" href="#">Login</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="makersbnb/views/html/makersbnb.html">Add Space<span class='sr-only'>(current)</a>
+          <a class="nav-link" href="spaces/new">Add Space<span class='sr-only'>(current)</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="view_spaces.html">View Spaces</a>
+          <a class="nav-link" href="/spaces">View Spaces</a>
         </li>
      </div>
         </li>
@@ -54,28 +54,28 @@
                       <!-- <div class="form-row"> -->
                         <div class="form-group col-md-8">
                           <label for="name">Name</label>
-                          <input type="email" class="form-control" id="name" placeholder="">
+                          <input type="name" class="form-control" id="name" name="name" placeholder="">
                         </div>
                       </div>
                       <!-- <div class="form-group col-md-3"> -->
                         <div class="form-group col-md-10">
                           <label for="description">Description</label>
-                          <textarea class="form-control" id="description" rows="5"></textarea>
+                          <textarea class="form-control" id="description" name="description" rows="5"></textarea>
                         </div>
                       <!-- </div> -->
                     </div>
                     <div class="form-group col-md-5">
                       <label for="price">Price per Night</label>
-                      <input type="text" class="form-control" id="price" placeholder="">
+                      <input type="text" class="form-control" id="price" name="price" placeholder="">
                     </div>
-                    <div class="form-row"> 
+                    <div class="form-row">
                       <div class="form-group col-md-5">
                         <label for="availabilefrom">Available From:</label>
-                        <input type="text" class="form-control" id="date">
+                        <input type="text" class="form-control" name="availability_start" id="date">
                       </div>
                       <div class="form-group col-md-5">
                         <label for="availableto">Available To:</label>
-                        <input type="text" class="form-control" id="date">
+                        <input type="text" class="form-control" name="availability_end" id="date">
                       </div>
       </div>
 <br>
@@ -86,7 +86,7 @@
   </div>
   </div>
   </div>
-   
+
     </div>
   </div>
   </section>
