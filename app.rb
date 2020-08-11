@@ -26,4 +26,5 @@ class MakersBnb < Sinatra::Base
   post '/spaces/new' do
     erb :'add_space'
   end
+  
 end
