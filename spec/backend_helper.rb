@@ -4,8 +4,8 @@ def database
   PG.connect(dbname: 'makersbnb_test', user: 'postgres', password: '')
 end
 
-def generate_example_users
-  database.query("INSERT INTO user (name, email, password) VALUES('master, master, master')")
+def generate_example_master
+  database.query("INSERT INTO users (name, email, password) VALUES('master', 'master', 'master');")
 end
 
 def generate_example_peeps
@@ -36,5 +36,6 @@ def truncate_db
 
   database.query('TRUNCATE user_peeps, threads, users, peeps RESTART IDENTITY')
 end
+
 
 

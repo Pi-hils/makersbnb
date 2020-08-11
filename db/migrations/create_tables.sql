@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS "spaces" (
   "published" timestamp default (now() at time zone 'utc')
 );
 
-CREATE TABLE IF NOT EXISTS "user" (
+CREATE TABLE IF NOT EXISTS "users" (
   "id" serial primary key,
   "name" varchar(60),
   "email" varchar(60),
@@ -40,12 +40,12 @@ CREATE TABLE IF NOT EXISTS "message" (
 
 ALTER TABLE "requests" ADD FOREIGN KEY ("space_id") REFERENCES "spaces" ("id");
 
-ALTER TABLE "requests" ADD FOREIGN KEY ("guest_id") REFERENCES "user" ("id");
+ALTER TABLE "requests" ADD FOREIGN KEY ("guest_id") REFERENCES "users" ("id");
 
-ALTER TABLE "spaces" ADD FOREIGN KEY ("host_id") REFERENCES "user" ("id");
+ALTER TABLE "spaces" ADD FOREIGN KEY ("host_id") REFERENCES "users" ("id");
 
 ALTER TABLE "user_messages" ADD FOREIGN KEY ("thread_id") REFERENCES "requests" ("id");
 
-ALTER TABLE "user_messages" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
+ALTER TABLE "user_messages" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE "user_messages" ADD FOREIGN KEY ("message_id") REFERENCES "message" ("id");
