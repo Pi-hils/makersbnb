@@ -3,10 +3,10 @@ require_relative './database_start_script'
 # that uses the @host_id to find the name of the host.
 
 # Space controls the spaces elements of the application
-class Space
+class Spaces
 
   attr_reader :name, :price, :description, :availability_start, :availability_end, :bookable, :host_id
-  
+
   def initialize(id:,name:, price:, description:, availability_start:,
                  availability_end:, bookable:, host_id:, published:)
     @id = id; @name = name; @price = price; @description = description
@@ -16,19 +16,30 @@ class Space
   end
 
   def self.add(name:, price:, description:, availability_start:, availability_end:, host_id:)
-    result = database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('#{name}','#{price}','#{description}','#{availability_start}','#{availability_end}', '#{host_id}') RETURNING * ;")
-    result.map do |record|
-      return Space.new(id: record['id'],
-                       name: record['name'],
-                       price: record['price'],
-                       description: record['description'],
-                       availability_start: record['availability_start'],
-                       availability_end: record['availability_end'],
-                       bookable: record['bookable'],
-                       host_id: record['host_id'],
-                       published: record['published'])
-    end
+    space = database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('#{name}','#{price}','#{description}','#{Date.parse(availability_start)}','#{Date.parse(availability_end)}', '#{host_id}') RETURNING * ;")
+    space_wrapper(space).first
+
   end
 
+  def self.all
+    spaces = database.query("SELECT * FROM spaces")
+    space_wrapper(spaces)
+  end
+
+  private
+
+  def self.space_wrapper(query_result)
+    query_result.map { |record|
+      Spaces.new(id: record['id'],
+               name: record['name'],
+               price: record['price'],
+               description: record['description'],
+               availability_start: record['availability_start'],
+               availability_end: record['availability_end'],
+               bookable: record['bookable'],
+               host_id: record['host_id'],
+               published: record['published'])
+     }
+  end
 
 end

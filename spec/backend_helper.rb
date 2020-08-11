@@ -9,7 +9,9 @@ def generate_example_master
 end
 
 def generate_example_space
-  database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('test2','250.00','test','11/08/2020','18/08/2020', '1');")
+  database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('test1','250.00','test','#{Date.parse('11/08/2020')}','#{Date.parse('18/08/2020')}', '1');")
+  database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('test2','350.00','test','#{Date.parse('11/08/2020')}','#{Date.parse('18/08/2020')}', '1');")
+  database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('test3','450.00','test','#{Date.parse('11/08/2020')}','#{Date.parse('18/08/2020')}', '1');")
 end
 
 def generate_example_user_peeps
@@ -36,6 +38,3 @@ def truncate_db
 
   database.query('TRUNCATE user_messages, message, requests, spaces, users RESTART IDENTITY')
 end
-
-
-
