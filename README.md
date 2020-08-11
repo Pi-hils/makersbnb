@@ -27,22 +27,22 @@ I would like to list a new space so it can be booked.
 
 
 As a host,
-So the customer knows the name of where they may stay,
+So the guest knows the name of where they may stay,
 I should be able to name a space.
 
 
 As a host,
-So customer has some information of where they will be staying,
+So guest has some information of where they will be staying,
 I should be able to provide a short description of a space.
 
 
 As a host,
-So customer knows the affordability of a space,
+So guest knows the affordability of a space,
 I should be able to price a space per night.
 
 
 As a host,
-So customers are aware of availability,
+So guests are aware of availability,
 I should be able to offer a range of dates where a space is available.
 
 
@@ -51,27 +51,27 @@ With multiple spaces available,
 I would like to be able to list multiple spaces so they can be booked.
 
 
-As a customer,
+As a guest,
 So I can choose a preference,
 I would like to be able to view listings.
 
 
-As a customer,
+As a guest,
 So I know I have a place to stay,
 I would like to be able to hire an available space for one night so it can be approved by the host owning the space.
 
 
 As a host,
-So a customer can pay for their stay,
+So a guest can pay for their stay,
 I would like to be able to approve requests to hire spaces that I own.
 
 
-As a customer,
+As a guest,
 So I don't run into any issues,
 I cannot book a space if unavailable on a given date.
 
 
-As a customer,
+As a guest,
 So I have a chance to find a space, 
 I can still book a space until the host has confirmed a request for hire.
 
