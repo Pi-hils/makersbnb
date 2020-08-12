@@ -62,8 +62,13 @@ I would like to be able to hire an available space for one night so it can be ap
 
 
 As a host,
+So I can decide who uses my space,
+I would like to get the option to approve requests to hire spaces that I own.
+
+
+As a host,
 So a guest can pay for their stay,
-I would like to be able to approve requests to hire spaces that I own.
+I would like to be able to approve requests to hire.
 
 
 As a guest,
