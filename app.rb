@@ -23,7 +23,6 @@ class MakersBnb < Sinatra::Base
     erb :'dashboard'
   end
 
-
   get '/signup' do
     erb :'sign_up'
   end
@@ -38,11 +37,6 @@ class MakersBnb < Sinatra::Base
 
   get '/space_details' do
     erb :'space_details'
-
-  get '/' do
-    'Welcome to MakersBnb'
-    erb(:index)
-
   end
 
   post '/spaces/add' do
