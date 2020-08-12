@@ -22,7 +22,7 @@ describe Spaces do
     spaces = Spaces.all
 
     expect(spaces.size).to eq(3)
-    expect(spaces[0].name).to eq('test1')
+    expect(spaces[0].name).to eq('test3')
     expect(spaces[1].price).to eq('350.00')
   end
 

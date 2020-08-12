@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'rack-flash'
 require_relative './models/database_start_script'
 require_relative './models/space'
+require_relative './models/user'
 
 class MakersBnb < Sinatra::Base
 
