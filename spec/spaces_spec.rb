@@ -25,4 +25,5 @@ describe Spaces do
     expect(spaces[0].name).to eq('test1')
     expect(spaces[1].price).to eq('350.00')
   end
+
 end
