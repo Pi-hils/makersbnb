@@ -21,6 +21,8 @@ CREATE TABLE IF NOT EXISTS "requests" (
   "id" serial primary key,
   "space_id" integer,
   "guest_id" integer,
+  "start_date" date,
+  "end_date" date,
   "accepted" boolean default NULL
 );
 

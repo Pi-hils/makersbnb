@@ -5,6 +5,10 @@ class Requests
     @accepted = false
   end
 
+  def self.add
+
+  end
+
   def accept
     @accepted = true
     # Sends acceptance message to user
