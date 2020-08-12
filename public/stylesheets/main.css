@@ -5,9 +5,10 @@
   text-align: center;
 }
 
-h3 {
-  color: red;
-}
+/* h5 {
+  color: rgb(2, 0, 0);
+  text-align: center;
+} */
 
 p {
   color:black;
@@ -35,9 +36,29 @@ form:before {
   height: 100%;
   left: 0;
   position: absolute;
+  text-align: center;
   top: 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.116);
   z-index: -1;
   border-radius: 10px;
+}
+
+label {
+  color: rgba(12, 2, 2, 0.945);
+  font-weight: bolder;
+  font-size: 17px;
+  text-align: initial;
+}
+
+.footer {
+  position: float;
+  left: 0;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  margin-top: 70px;
+  background-color: rgba(70, 69, 69, 0.055); 
+  color: black;
+  text-align: center;
 }

@@ -11,7 +11,8 @@ class MakersBnb < Sinatra::Base
 
 
   get '/' do
-    'Welcome to MakersBnb'
+    erb :'login'
+    # 'Welcome to MakersBnb'
   end
 
   get '/spaces' do
