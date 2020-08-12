@@ -28,8 +28,8 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces' do
-    #@spaces = Spaces.all
-    erb(:view_spaces)
+    @spaces = Spaces.all
+    erb :view_spaces
   end
 
 end
