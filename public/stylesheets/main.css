@@ -1,0 +1,64 @@
+.heading h1{
+  color:black;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+}
+
+/* h5 {
+  color: rgb(2, 0, 0);
+  text-align: center;
+} */
+
+p {
+  color:black;
+  text-align: center;
+}
+
+#cover {
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-top: 5px;
+}
+
+#cover-caption {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+form:before {
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.116);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+label {
+  color: rgba(12, 2, 2, 0.945);
+  font-weight: bolder;
+  font-size: 17px;
+  text-align: initial;
+}
+
+.footer {
+  position: float;
+  left: 0;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  margin-top: 70px;
+  background-color: rgba(70, 69, 69, 0.055); 
+  color: black;
+  text-align: center;
+}
