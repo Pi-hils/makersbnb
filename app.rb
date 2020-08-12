@@ -15,16 +15,21 @@ class MakersBnb < Sinatra::Base
     erb(:index)
   end
 
-  post '/spaces/add' do
+  get '/spaces/new' do
+    erb(:add_space)
+  end
+
+  post '/spaces/:host_id/new' do
+    p params
     Spaces.add(name: params[:space_name], price: params[:price], description: params[:description],
       availability_start: params[:availability_start], availability_end: params[:availability_end],
       host_id: params[:host_id])
-    erb(:index)
+    redirect '/spaces'
   end
 
   get '/spaces' do
-    @spaces = Spaces.all
-    erb(:index)
+    #@spaces = Spaces.all
+    erb(:view_spaces)
   end
 
 end
