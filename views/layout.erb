@@ -1,9 +1,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  ...
-  <link rel="stylesheet" href="stylesheets/main.css">
-  <link rel="icon" type="image/ico" href="images/smile.jpg" />
+  <link rel="icon" type="image/ico" href="images/smile.jpg"/>
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css"/>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+  <link rel="stylesheet" href="/stylesheets/main.css">
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="spaces/new">MakersBnB</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login/Sign in</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/spaces/new">Add Space</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/spaces">View Spaces</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
 <%= yield %>
+
+</body>
+
+<div class="footer">
+ Makersbnb 2020
+</div>
