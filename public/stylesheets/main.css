@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-/* h5 {
-  color: rgb(2, 0, 0);
-  text-align: center;
-} */
 
 p {
   color:black;
@@ -49,6 +45,42 @@ label {
   font-weight: bolder;
   font-size: 17px;
   text-align: initial;
+}
+
+.btn{
+  background-color: #4a997fec;
+  border: none;
+  color:white;
+  padding: 40px 30px;
+  width: 240px;
+  font-size: 16px;
+  cursor: pointer;
+  height: 150px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 30px 30px 5px;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+    background-color: RoyalBlue;
+  }
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.accept {
+  width: 100%;
+  padding: 25px;
+  background-color: coral;
+  color: white;
+  font-size: 25px;
+  box-sizing: border-box;
 }
 
 .footer {

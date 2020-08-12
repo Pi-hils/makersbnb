@@ -10,9 +10,33 @@ class MakersBnb < Sinatra::Base
   use Rack::Flash
 
 
-  get '/' do
+  get '/login' do
     erb :'login'
-    # 'Welcome to MakersBnb'
+  end
+
+  post '/login' do
+    redirect '/dashboard'
+  end
+
+  get '/dashboard' do
+    erb :'dashboard'
+  end
+
+
+  get '/signup' do
+    erb :'sign_up'
+  end
+
+  post '/signup' do
+    redirect '/dashboard'
+  end
+
+  get '/hostings' do
+    erb :'your_hostings'
+  end
+
+  get '/space_details' do
+    erb :'space_details'
   end
 
   get '/spaces' do
