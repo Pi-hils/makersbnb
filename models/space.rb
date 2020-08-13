@@ -16,17 +16,15 @@ class Spaces
   end
 
   def self.add(name:, price:, description:, availability_start:, availability_end:, host_id:)
-    space = database.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('#{name}','#{price}','#{description}','#{Date.parse(availability_start)}','#{Date.parse(availability_end)}', '#{host_id}') RETURNING * ;")
+    space = DatabaseConnection.query("INSERT into spaces (name, price, description, availability_start, availability_end, host_id) VALUES('#{name}','#{price}','#{description}','#{Date.parse(availability_start)}','#{Date.parse(availability_end)}', '#{host_id}') RETURNING * ;")
     space_wrapper(space).first
 
   end
 
   def self.all
-    spaces = database.query("SELECT * FROM spaces")
+    spaces = DatabaseConnection.query('SELECT * FROM spaces')
     space_wrapper(spaces)
   end
-
-  private
 
   def self.space_wrapper(query_result)
     query_result.map { |record|

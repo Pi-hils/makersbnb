@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'rack-flash'
 require_relative './models/database_start_script'
 require_relative './models/space'
+require_relative './models/request'
 
 class MakersBnb < Sinatra::Base
 
@@ -12,7 +13,7 @@ class MakersBnb < Sinatra::Base
 
 
   get '/login' do
-    erb :'login'
+    erb :login
   end
 
   post '/login' do
@@ -20,12 +21,12 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/dashboard' do
-    erb :'dashboard'
+    erb :dashboard
   end
 
 
   get '/signup' do
-    erb :'sign_up'
+    erb :sign_up
   end
 
   post '/signup' do
@@ -33,28 +34,28 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/hostings' do
-    erb :'your_hostings'
+    erb :your_hostings
   end
 
   get '/space_details' do
-    erb :'space_details'
+    erb :space_details
+  end
 
   get '/' do
     'Welcome to MakersBnb'
-    erb(:index)
-
+    erb(:index) # Needs to be resolved
   end
 
   post '/spaces/add' do
     Spaces.add(name: params[:space_name], price: params[:price], description: params[:description],
       availability_start: params[:availability_start], availability_end: params[:availability_end],
       host_id: params[:host_id])
-    erb(:index)
+    redirect '/spaces'
   end
 
   get '/spaces' do
     @spaces = Spaces.all
-    erb(:index)
+    erb(:view_spaces)
   end
 
 end
