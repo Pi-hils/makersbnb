@@ -4,7 +4,8 @@ class Request
   attr_reader :id, :space_id, :guest_id, :status, :start_date, :end_date, :host_id, :host_email, :host_name, :space, :response_date
 
   def initialize(id:, space_id:, guest_id:, accepted:, start_date:, end_date:, response_date:)
-    @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted); @response_date = response_date
+    @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted)
+    @response_date = response_date ? DateTime.parse(response_date).strftime('%d/%m/%Y %k:%M:%S') : nil
     @start_date = Date.parse(start_date).strftime('%d/%m/%Y'); @end_date = Date.parse(end_date).strftime('%d/%m/%Y')
     get_host_info(space_id)
     get_space_info(space_id)
@@ -23,7 +24,7 @@ class Request
 
   def get_status(accepted)
     return 'ACCEPTED' if accepted == 't' || accepted == true
-    return 'DENIED' if accepted == 'f' || accepted == false
+    return 'DECLINED' if accepted == 'f' || accepted == false
 
     'UNCONFIRMED'
   end
@@ -41,13 +42,14 @@ class Request
   end
 
   def self.accept(id:)
-    accepted_request = DatabaseConnection.query("UPDATE requests SET accepted = true WHERE id = #{id} RETURNING *")
+    accepted_request = DatabaseConnection.query("UPDATE requests SET accepted = true, response_date = '#{Time.now}' WHERE id = #{id} RETURNING *")
+    DatabaseConnection.query("UPDATE spaces SET bookable = false WHERE id = (SELECT space_id FROM requests WHERE id = #{id})")
     request_wrapper(accepted_request).first
   end
 
-  def self.decline
-    @accepted = false
-    # Sends rejection message to user
+  def self.decline(id:)
+    declined_request = DatabaseConnection.query("UPDATE requests SET accepted = false, response_date = '#{Time.now}' WHERE id = #{id} RETURNING *")
+    request_wrapper(declined_request).first
   end
 
   def self.request_wrapper(query_result)

@@ -31,6 +31,14 @@ describe Request do
     request = Request.accept(id: 1)
     expect(request.space_id).to eq '4'
     expect(request.status).to eq 'ACCEPTED'
+    expect(request.space.bookable).to eq false
+  end
+
+  it '#decline' do
+    Request.add(space_id: '4', guest_id: '1', start_date: '13/08/2020', end_date: '14/08/2020')
+    request = Request.decline(id: 1)
+    expect(request.space_id).to eq '4'
+    expect(request.status).to eq 'DECLINED'
   end
 
 
