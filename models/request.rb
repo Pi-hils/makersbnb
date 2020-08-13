@@ -12,7 +12,7 @@ class Request
   end
 
   def self.add(space_id:, guest_id:, start_date:, end_date:)
-    request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{start_date}','#{end_date}') RETURNING *")
+    request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%d/%m/%Y')}','#{Date.parse(end_date).strftime('%d/%m/%Y')}') RETURNING *")
     request_wrapper(request).first
   end
 

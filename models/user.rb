@@ -17,10 +17,8 @@ class User
     user = User.new(id: record['id'], name: record['name'], email: record['email'])
   end
 
-  def find(name)
-    record = DatabaseConnection.query("SELECT name, email FROM users WHERE name ='#{name}'")
-
-    
+  def self.find(id)
+    record = DatabaseConnection.query("SELECT id FROM users WHERE id ='#{id}'")
   end
 
 end

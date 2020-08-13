@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/student/Documents/Projects/Week6/makersbnb/app.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/app.rb": {
         "lines": [
           1,
           1,
@@ -76,7 +76,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/models/database_start_script.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/database_start_script.rb": {
         "lines": [
           1,
           null,
@@ -90,7 +90,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/models/database_connection.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/database_connection.rb": {
         "lines": [
           1,
           null,
@@ -107,7 +107,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/models/space.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/space.rb": {
         "lines": [
           1,
           null,
@@ -159,7 +159,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/models/request.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/request.rb": {
         "lines": [
           1,
           null,
@@ -230,7 +230,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/models/user.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/user.rb": {
         "lines": [
           1,
           1,
@@ -253,16 +253,12 @@
           null,
           1,
           1,
-          1,
-          1,
-          2,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/spec/request_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/request_spec.rb": {
         "lines": [
           1,
           null,
@@ -311,7 +307,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/spec/spaces_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/spaces_spec.rb": {
         "lines": [
           1,
           null,
@@ -344,7 +340,7 @@
           null
         ]
       },
-      "/Users/student/Documents/Projects/Week6/makersbnb/spec/user_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -355,6 +351,7 @@
           1,
           null,
           null,
+          1,
           1,
           1,
           1,
@@ -363,6 +360,6 @@
         ]
       }
     },
-    "timestamp": 1597319524
+    "timestamp": 1597325525
   }
 }

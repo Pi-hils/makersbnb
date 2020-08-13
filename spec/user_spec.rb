@@ -8,7 +8,7 @@ describe User do
   end
 
   it 'can find and return a user' do
-    user = User.add(name: 'Ralph', email: 'me@example.com', password: 'passw0rd')
-    expect(user.find('Ralph')).to eq(name: 'Ralph', email: 'me@example.com')
+     User.add(name: 'Ralph', email: 'me@example.com', password: 'passw0rd')
+     user = User.find(1)
   end
 end
