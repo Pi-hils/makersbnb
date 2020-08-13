@@ -24,7 +24,6 @@ class MakersBnb < Sinatra::Base
     erb :dashboard
   end
 
-
   get '/signup' do
     erb :sign_up
   end
@@ -43,7 +42,7 @@ class MakersBnb < Sinatra::Base
 
   get '/' do
     'Welcome to MakersBnb'
-    erb(:index) # Needs to be resolved
+    erb(:index) # Needs to be resolved to an actual route
   end
 
   post '/spaces/add' do
