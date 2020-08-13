@@ -41,4 +41,13 @@ describe Request do
     expect(request.status).to eq 'DECLINED'
   end
 
+  it '#get_stays' do
+    Request.add(space_id: '4', guest_id: '1', start_date: '13/08/2020', end_date: '14/08/2020')
+    stays = Request.get_stays(guest_id: 1)
+    expect(stays.first.space.id).to eq '4'
+    Request.decline(id: 1)
+    stays = Request.get_stays(guest_id: 1)
+    expect(stays.first.status).to eq 'DECLINED'
+  end
+
 end

@@ -13,14 +13,19 @@ class Request
 
   def self.add(space_id:, guest_id:, start_date:, end_date:)
     Date.parse(start_date).strftime('%Y/%m/%d')
-    request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(start_date).strftime('%Y/%m/%d')}') RETURNING *")
+    request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(end_date).strftime('%Y/%m/%d')}') RETURNING *")
     request_wrapper(request).first
   end
 
   # THE HOST VIEWING THEIR OWN REQUESTS || TODO: PORT TO USER CLASS
   def self.get_requests(host_id:)
-    requests = DatabaseConnection.query("SELECT requests.id, requests.space_id, requests.guest_id, requests.accepted, requests.start_date, requests.end_date FROM requests INNER JOIN spaces sp ON requests.space_id = (SELECT sp.id WHERE sp.host_id = #{host_id})")
+    requests = DatabaseConnection.query("SELECT requests.id, requests.space_id, requests.guest_id, requests.accepted, requests.start_date, requests.end_date FROM requests INNER JOIN spaces sp ON requests.space_id = (SELECT sp.id WHERE sp.host_id = #{host_id}) ORDER BY response_date DESC")
     request_wrapper(requests)
+  end
+
+  def self.get_stays(guest_id:)
+    stays = DatabaseConnection.query("SELECT requests.id, requests.space_id, requests.guest_id, requests.accepted, requests.start_date, requests.end_date FROM requests WHERE requests.guest_id = #{guest_id} ORDER BY response_date DESC")
+    request_wrapper(stays)
   end
 
   def get_status(accepted)

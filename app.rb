@@ -27,6 +27,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/dashboard' do
+    @user = User.find(id: session[:user_id])
     erb :dashboard
   end
 
@@ -42,10 +43,13 @@ class MakersBnb < Sinatra::Base
 
   get '/your_hostings' do
     # @requests = Request.get_requests(params[:host_id])
+    @user = User.find(id: session[:user_id])
+    @requests = Request.get_requests(host_id: session[:user_id])
     erb :your_hostings
   end
 
-  get '/yourstays' do
+  get '/your_stays' do
+    @user = User.find(id: session[:user_id])
     erb :your_stays
   end
 
@@ -63,7 +67,6 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/spaces/:host_id/add' do
-    p params
     Spaces.add(name: params[:space_name], price: params[:price], description: params[:description],
       availability_start: params[:availability_start], availability_end: params[:availability_end],
       host_id: params[:host_id])
