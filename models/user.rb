@@ -17,4 +17,12 @@ class User
     user = User.new(id: record['id'], name: record['name'], email: record['email'])
   end
 
+  def find(name)
+    record = DatabaseConnection.query("SELECT name, email FROM users WHERE name ='#{name}'")
+    first_row = record.first
+    first_row.map do |k,v|
+      v
+    end
+  end
+
 end

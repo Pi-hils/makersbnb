@@ -3,6 +3,7 @@ require 'rack-flash'
 require_relative './models/database_start_script'
 require_relative './models/space'
 require_relative './models/request'
+require_relative './models/user'
 
 class MakersBnb < Sinatra::Base
 
@@ -64,5 +65,5 @@ class MakersBnb < Sinatra::Base
     erb(:view_spaces)
   end
 
-  
+
 end
