@@ -35,6 +35,10 @@ class MakersBnb < Sinatra::Base
     erb :'your_hostings'
   end
 
+  get '/yourstays' do
+    erb :'your_stays'
+  end
+
   get '/space_details' do
     erb :'space_details'
   end
@@ -59,4 +63,5 @@ class MakersBnb < Sinatra::Base
     # erb(:index)
   end
 
+  
 end
