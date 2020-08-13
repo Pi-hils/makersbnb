@@ -13,7 +13,7 @@
               <div class="col-md-8  mx-auto text-center form p-4">
                   <div class="px-2">
                 <div class='form'>
-                  <form action="/spaces/1/add" class="justify-content-center" method='post'>
+                  <form action="/spaces/<%= @user.id %>/new" class="justify-content-center" method='post'>
                         <div class="form-group ">
                           <label for="name">Name</label>
                           <input type="text" class="form-control" id="name" name="space_name">

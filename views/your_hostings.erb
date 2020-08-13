@@ -20,20 +20,25 @@ function myFunction() {
     <div class="px-2">
       <div class='form'>
         <div class="list-group">
-
-             <!-- @requests.each do |request|  ======> NEED RUBY BRACKETS
-           <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+          <% @requests.each do |request| %>
+          <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">< request.space.name %></h5>    =====> NEED RUBY BRACKETS
-              <h6></h6>
+              <h5 class="mb-1"><%= request.host_name %>'s <%= request.space.name %></h5>
               <br>
+              <h6><%= request.host_email %></h6>
+              <br>
+              <% if request.status == 'UNCONFIRMED' %>
               <button onclick="myFunction()">Accept</button>
               <div id="myDIV">
               </div>
               <button onclick="myFunction()">Decline</button>
+              <% else %>
+                <button onclick="myFunction()">Undo</button>
+              <% end %>
             </div>
           </a>
-            NEEDD RUBY BRACKETS   <!-- end -->
+          <br>
+          <% end %>
           <br>
           <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">

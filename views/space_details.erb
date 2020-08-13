@@ -10,7 +10,7 @@
             <h3>£<%= @space.price %> per night</h3>
               <br>
             <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
-          <form action="/<%= 1 %>/<%= @space.id %>/request/new" method="post">
+          <form action="/<%= @user.id %>/<%= @space.id %>/request/new" method="post">
             <input type="text" name="start_date">
             <input type="text" name="end_date">
             <input type="submit" value="Request To Book">

@@ -8,6 +8,14 @@
       <div class='form'>
         <div class="list-group">
           <% @stays.each do |stay| %>
+            <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= stay.host_name %>'s place</h5>
+                <h6>Request status: <%= stay.status %></h6>
+                <h6>Dates requested " <%= stay.start_date %> TO <%= stay.end_date %>"</h6>
+                <input type="button" value="Cancel Request">
+              </div>
+            </a>
           <% end %>
 
           <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
