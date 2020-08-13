@@ -41,5 +41,4 @@ describe Request do
     expect(request.status).to eq 'DECLINED'
   end
 
-
 end
