@@ -43,7 +43,7 @@ I should be able to price a space per night.
 
 As a host,
 So guests are aware of availability,
-I should be able to offer a range of dates where a space is available.
+I should be able to offer a range of dates for when a space will be available.
 
 
 As a host
@@ -58,17 +58,22 @@ I would like to be able to view listings.
 
 As a guest,
 So I know I have a place to stay,
-I would like to be able to hire an available space for one night so it can be approved by the host owning the space.
+I would like to be able to hire an available space for one night so it can be approved by the host who owns the space.
+
+
+As a host,
+So I can decide who uses my space,
+I would like to get the option to approve requests to hire spaces that I own.
 
 
 As a host,
 So a guest can pay for their stay,
-I would like to be able to approve requests to hire spaces that I own.
+I would like to be able to approve requests to hire.
 
 
 As a guest,
-So I don't run into any issues,
-I cannot book a space if unavailable on a given date.
+So I don't run into any conflicts,
+I would like to know if a space is unavailable on a given date.
 
 
 As a guest,

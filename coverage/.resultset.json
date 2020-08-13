@@ -1,7 +1,11 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
       "/Users/student/Documents/Projects/Week6/makersbnb/app.rb": {
+=======
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/app.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
           1,
@@ -16,10 +20,6 @@
           1,
           null,
           null,
-          1,
-          null,
-          0,
-          null,
           null,
           1,
           0,
@@ -27,21 +27,63 @@
           null,
           1,
           0,
+          null,
+          null,
+          1,
           0,
           null,
           null,
+          1,
+<<<<<<< HEAD
+          0,
+          0,
+          null,
+          null,
+=======
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
           0,
           null,
           null,
           1,
           0,
+          null,
+          null,
+          1,
           0,
           null,
           null,
+<<<<<<< HEAD
           null
         ]
       },
       "/Users/student/Documents/Projects/Week6/makersbnb/models/database_start_script.rb": {
+=======
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_start_script.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
           null,
@@ -56,7 +98,11 @@
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/student/Documents/Projects/Week6/makersbnb/models/database_connection.rb": {
+=======
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_connection.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
           null,
@@ -67,13 +113,21 @@
           null,
           null,
           1,
+<<<<<<< HEAD
           3,
+=======
+          27,
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
           null,
           null,
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/student/Documents/Projects/Week6/makersbnb/models/space.rb": {
+=======
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/space.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
           null,
@@ -86,27 +140,24 @@
           null,
           1,
           null,
-          4,
-          4,
-          4,
-          4,
+          9,
+          9,
+          9,
+          9,
           null,
           null,
           1,
+          0,
+          0,
+          null,
           1,
-          1,
+          0,
+          0,
           null,
           null,
           1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          4,
+          9,
+          9,
           null,
           null,
           null,
@@ -121,6 +172,7 @@
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/student/Documents/Projects/Week6/makersbnb/models/user.rb": {
         "lines": [
           1,
@@ -144,82 +196,138 @@
         ]
       },
       "/Users/student/Documents/Projects/Week6/makersbnb/spec/requests_spec.rb": {
+=======
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/request.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
+          null,
           1,
+          1,
+          null,
+          1,
+          9,
+          9,
+          9,
+          9,
+          9,
+          null,
+          null,
+          1,
+          5,
+          5,
+          null,
+          null,
           null,
           1,
           1,
           1,
-          1,
           null,
           null,
           1,
-          1,
-          1,
-          1,
+          9,
+          8,
+          null,
+          7,
           null,
           null,
           1,
-          1,
-          1,
-          1,
+          9,
+          9,
           null,
           null,
+          null,
+          1,
+          9,
+          null,
+          9,
+          null,
+          null,
+<<<<<<< HEAD
           null
         ]
       },
       "/Users/student/Documents/Projects/Week6/makersbnb/models/requests.rb": {
         "lines": [
+=======
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
           1,
           1,
-          null,
-          1,
-          3,
-          null,
-          null,
           1,
           1,
           null,
           null,
+          1,
+          1,
+          1,
+          null,
+          null,
           null,
           null,
           1,
-          1,
+          8,
+          9,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/student/Documents/Projects/Week6/makersbnb/spec/spaces_spec.rb": {
+=======
+      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/spec/request_spec.rb": {
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
         "lines": [
           1,
           null,
           1,
           null,
           1,
-          2,
+          4,
+          4,
+          4,
+          4,
           null,
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
+          1,
+          1,
           1,
           1,
           null,
           null,
           1,
           1,
-          null,
+          1,
+          1,
+          1,
+          1,
           1,
           null,
+          null,
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           null,
           null
@@ -240,6 +348,10 @@
         ]
       }
     },
+<<<<<<< HEAD
     "timestamp": 1597249374
+=======
+    "timestamp": 1597309999
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
   }
 }

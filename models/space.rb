@@ -11,7 +11,11 @@ class Spaces
                  availability_end:, bookable:, host_id:, published:)
     @id = id; @name = name; @price = price; @description = description
     @availability_start = Date.parse(availability_start).strftime('%d/%m/%Y'); @availability_end = Date.parse(availability_end).strftime('%d/%m/%Y')
+<<<<<<< HEAD
     @host_id = host_id; @published = Date.parse(published).strftime('%d/%m/%Y')
+=======
+    @host_id = host_id; @published = DateTime.parse(published).strftime('%d/%m/%Y')
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
     @bookable = bookable == 't'; # If database ever provides a truth value of anything other than "t", will return false
   end
 
@@ -21,11 +25,13 @@ class Spaces
   end
 
   def self.all
+<<<<<<< HEAD
     spaces = DatabaseConnection.query('SELECT * FROM spaces ORDER BY published DESC')
+=======
+    spaces = DatabaseConnection.query('SELECT * FROM spaces WHERE bookable = true ORDER BY published DESC')
+>>>>>>> d10271eefb91a4ad79b1be46cf445c7fce989613
     space_wrapper(spaces)
   end
-
-  private
 
   def self.space_wrapper(query_result)
     query_result.map { |record|
