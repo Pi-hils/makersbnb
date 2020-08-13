@@ -13,13 +13,16 @@
                 <div class='form'>
 <div class="list-group">
   <% @spaces.each do |space|  %>
-    <a href="https://www.airbnb.co.uk/rooms/30075786?source_impression_id=p3_1597144927_kfwSlVP3lVQDCjLi" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a href="/space_details" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1"><%= space.name %></h5>
         <small class="text-muted">Published: <%= space.published %></small>
       </div>
       <p class="mb-1"><%= space.description %></p>
       <small><strong>Price: £<%= space.price %></strong></small>
+        <form action="/<%= space.id %>/space_details">
+          <input type="submit" value="View Details">
+        </form>
     </a>
     <br>
   <% end %>

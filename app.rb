@@ -41,7 +41,8 @@ class MakersBnb < Sinatra::Base
     erb :'your_stays'
   end
 
-  get '/space_details' do
+  get '/:space_id/space_details' do
+    @space = Spaces.find(params[:space_id])
     erb :space_details
   end
 
@@ -53,7 +54,8 @@ class MakersBnb < Sinatra::Base
     erb :'add_space'
   end
 
-  post '/spaces/add' do
+  post '/spaces/:host_id/add' do
+    p params
     Spaces.add(name: params[:space_name], price: params[:price], description: params[:description],
       availability_start: params[:availability_start], availability_end: params[:availability_end],
       host_id: params[:host_id])
