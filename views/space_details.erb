@@ -1,5 +1,12 @@
 <div class='heading'>
 <%# this will be interpolated to hold the name of the selected space the guest wishes to stay %>
-<h1>Space Name</h1>
+<h1><%= @space.name %></h1>
 </div>
 
+<div>
+  <h3><%= @space.description %></h3>
+  <br>
+  <h3><%= @space.price %> per night</h3>
+  <br>
+  <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
+</div>

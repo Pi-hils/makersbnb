@@ -8,4 +8,3 @@ else
   p 'Starting main database..'
   DatabaseConnection.setup('makersbnb_production')
 end
-
