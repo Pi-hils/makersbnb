@@ -21,7 +21,7 @@ class Spaces
   end
 
   def self.all
-    spaces = DatabaseConnection.query('SELECT * FROM spaces')
+    spaces = DatabaseConnection.query('SELECT * FROM spaces WHERE bookable = true ORDER BY published DESC')
     space_wrapper(spaces)
   end
 
