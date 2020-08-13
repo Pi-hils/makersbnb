@@ -50,13 +50,13 @@ class MakersBnb < Sinatra::Base
       availability_start: params[:availability_start], availability_end: params[:availability_end],
       host_id: params[:host_id])
       # needs to be removed as already created a route method GET for this and index doesn't exist
-    erb (:index)
+    # erb (:index)
   end
 
   get '/spaces' do
     @spaces = Spaces.all
      # there is no 'index.erb'..yet
-    erb(:index)
+    # erb(:index)
   end
 
 end
