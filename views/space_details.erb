@@ -10,7 +10,7 @@
             <h3>£<%= @space.price %> per night</h3>
               <br>
             <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
-          <form action="/send_request">
+          <form action="/<%= @space.host_id %>/send_request">
             <input class="btn btn-psuccess" type="button" value="Request To Book">
           </form>
         </div>

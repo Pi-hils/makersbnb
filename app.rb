@@ -32,11 +32,13 @@ class MakersBnb < Sinatra::Base
     redirect '/dashboard'
   end
 
-  get '/hostings' do
+  get '/:host_id/hostings' do
+    @requests = Request.get_requests(params[:host_id])
     erb :your_hostings
   end
 
-  get '/yourstays' do
+#need more backend development before completing below path
+  get '/:guest_id/yourstays' do
     erb :'your_stays'
   end
 
@@ -66,5 +68,9 @@ class MakersBnb < Sinatra::Base
     erb(:view_spaces)
   end
 
+  post '/:host_id/send_request' do
+    Request.add(space_id: params[:id], guest_id: params[:guest_id], start_date: params[:availability_start], end_date: params[:availability_end])
+    redirect '/yourstays'
+  end
 
 end
