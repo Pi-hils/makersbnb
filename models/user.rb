@@ -13,13 +13,20 @@ class User
 
   def self.add(name:, email:, password:)
     authenticated_password = BCrypt::Password.create(password)
-    record = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{authenticated_password}') RETURNING id, name, email").first
-    User.new(id: record['id'], name: record['name'], email: record['email'])
+    user = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{authenticated_password}') RETURNING id, name, email")
+    user_wrapper(user).first
   end
 
   def self.find(id:)
-    record = DatabaseConnection.query("SELECT id, email, name FROM users WHERE id = #{id}").first
-    user = User.new(id: record['id'], name: record['name'], email: record['email'])
+    user = DatabaseConnection.query("SELECT id, email, name FROM users WHERE id = #{id}")
+   user_wrapper(user).first
+  end
+
+  def self.user_wrapper(query_result)
+   query_result.map { |record| 
+      User.new(id: record['id'], name: record['name'], email: record['email'])
+    }
   end
 
 end
+
