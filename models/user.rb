@@ -1,3 +1,4 @@
+require 'bcrypt'
 require_relative './database_start_script'
 
 class User
@@ -11,7 +12,8 @@ class User
   end
 
   def self.add(name:, email:, password:)
-    record = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{password}') RETURNING id, name, email").first
+    authenticated_password = BCrypt::Password.create(password)
+    record = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{authenticated_password}') RETURNING id, name, email").first
     user = User.new(id: record['id'], name: record['name'], email: record['email'])
   end
 
