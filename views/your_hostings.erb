@@ -1,84 +1,45 @@
 <div class='heading'>
 <h1>Booking Requests</h1>
 </div>
-
-<p>
-Please select <strong>Accept</strong> or <strong>Decline</strong>
-</p>
-
-
-
-<script>
-function myFunction() {
-   var element = document.getElementById("myDIV");
-   element.classList.toggle("accept");
-}
-</script>
-
 <div class="row text-black">
   <div class="col-md-8  mx-auto text-center form p-4">
     <div class="px-2">
       <div class='form'>
         <div class="list-group">
-          <% @requests.each do |request| %>
-          <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%= request.host_name %>'s <%= request.space.name %></h5>
-              <br>
-              <h6><%= request.host_email %></h6>
-              <br>
-              <% if request.status == 'UNCONFIRMED' %>
-              <button onclick="myFunction()">Accept</button>
-              <div id="myDIV">
+          <% if @requests.size > 0 %>
+            <p>
+              Please select <strong>Accept</strong> or <strong>Decline</strong>
+            </p>
+            <% @requests.each do |request| %>
+            <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">SPACE: <%= request.host_name %>'s <%= request.space.name %></h5>
+                <h6>Status: <%= request.status %> </h6>
+                <br>
+                 <h6>Guest: <%= request.guest_name %> (<%= request.guest_email %>) </h6>
+                <br>
+                <% if request.status == 'UNCONFIRMED' %>
+                  <form action="/request/accept/<%= request.id %>" method="post">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+                    <button type='submit' formaction="/request/accept/<%= request.id %>">Accept</button>
+                  </form>
+                  <form action="/request/decline/<%= request.id %>" method="post">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+                    <button type='submit' formaction="/request/decline/<%= request.id %>">Deny</button>
+                  </form>
+                <% else %>
+                  <form action="/request/undo/<%= request.id %>" method="post">
+                    <input id="hidden" type="hidden" name="_method" value="patch">
+                    <button type='submit' formaction="/request/undo/<%= request.id %>">Undo</button>
+                  </form>
+                <% end %>
               </div>
-              <button onclick="myFunction()">Decline</button>
-              <% else %>
-                <button onclick="myFunction()">Undo</button>
-              <% end %>
-            </div>
-          </a>
-          <br>
+            </a>
+            <br>
+            <% end %>
+          <% else %>
+            <h4>You have no requests to view</h4>
           <% end %>
-          <br>
-          <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Paul's gorgeous 3 bedroom</h5>
-              <br>
-              <h6>User Email</h6>
-              <br>
-              <button onclick="myFunction()">Accept</button>
-              <div id="myDIV">
-              </div>
-              <button onclick="myFunction()">Decline</button>
-            </div>
-          </a>
-          <br>
-          <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Mark's neat 5 bedroom</h5><br>
-              <br>
-              <h6>User Email</h6>
-              <br>
-              <button onclick="myFunction()">Accept</button>
-              <div id="myDIV">
-              </div>
-              <button onclick="myFunction()">Decline</button>
-            </div>
-          </a>
-          <br>
-          <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">Hilda's Luxurious 9 Villa</h5>
-              <br>
-              <h6>User Email</h6>
-              <br>
-              <button onclick="myFunction()">Accept</button>
-              <div id="myDIV">
-              </div>
-              <button onclick="myFunction()">Decline</button>
-            </div>
-          </a>
-          <br>
         </div>
       </div>
     </div>

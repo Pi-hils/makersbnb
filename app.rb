@@ -89,4 +89,22 @@ class MakersBnb < Sinatra::Base
     redirect '/your_stays'
   end
 
+  patch '/request/accept/:request_id' do
+    @user = User.find(id: session[:user_id])
+    Request.accept(id: params[:request_id])
+    redirect '/your_hostings'
+  end
+
+  patch '/request/decline/:request_id' do
+    @user = User.find(id: session[:user_id])
+    Request.decline(id: params[:request_id])
+    redirect '/your_hostings'
+  end
+
+  patch '/request/undo/:request_id' do
+    @user = User.find(id: session[:user_id])
+    Request.undo(id: params[:request_id])
+    redirect '/your_hostings'
+  end
+
 end

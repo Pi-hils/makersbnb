@@ -1,7 +1,9 @@
 require_relative './space'
 
 class Request
+
   attr_reader :id, :space_id, :guest_id, :status, :start_date, :end_date, :host_id, :host_email, :host_name, :space, :response_date
+  attr_reader :guest_email, :guest_name
 
   def initialize(id:, space_id:, guest_id:, accepted:, start_date:, end_date:, response_date:)
     @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted)
@@ -9,6 +11,7 @@ class Request
     @start_date = Date.parse(start_date).strftime('%d/%m/%Y'); @end_date = Date.parse(end_date).strftime('%d/%m/%Y')
     get_host_info(space_id)
     get_space_info(space_id)
+    get_guest_info(id)
   end
 
   def self.add(space_id:, guest_id:, start_date:, end_date:)
@@ -47,6 +50,12 @@ class Request
     @host_id = host_info['id']; @host_name = host_info['name']; @host_email = host_info['email']
   end
 
+  def get_guest_info(request_id)
+    guest_info = DatabaseConnection.query("SELECT id, name, email FROM users WHERE id =(SELECT guest_id FROM requests WHERE id=#{request_id});")
+                                   .first
+    @guest_id = guest_info['id']; @guest_name = guest_info['name']; @guest_email = guest_info['email']
+  end
+
   def self.accept(id:)
     accepted_request = DatabaseConnection.query("UPDATE requests SET accepted = true, response_date = '#{Time.now}' WHERE id = #{id} RETURNING *")
     DatabaseConnection.query("UPDATE spaces SET bookable = false WHERE id = (SELECT space_id FROM requests WHERE id = #{id})")
@@ -56,6 +65,12 @@ class Request
   def self.decline(id:)
     declined_request = DatabaseConnection.query("UPDATE requests SET accepted = false, response_date = '#{Time.now}' WHERE id = #{id} RETURNING *")
     request_wrapper(declined_request).first
+  end
+
+  def self.undo(id:)
+    reset_request = DatabaseConnection.query("UPDATE requests SET accepted = NULL, response_date = '#{Time.now}' WHERE id = #{id} RETURNING *")
+    DatabaseConnection.query("UPDATE spaces SET bookable = true WHERE id = (SELECT space_id FROM requests WHERE id = #{id})")
+    request_wrapper(reset_request).first
   end
 
   def self.request_wrapper(query_result)
