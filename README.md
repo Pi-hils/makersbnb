@@ -1,3 +1,7 @@
+## App Mockup
+
+<img src="https://user-images.githubusercontent.com/55639318/90190223-8433e000-ddb6-11ea-99a3-7713e3284443.png">
+
 ## Database Schema
 
 <img src="https://i.gyazo.com/8aa4b97f6f4e2bed05b0318e499bfcb7.png">
@@ -77,7 +81,7 @@ I would like to know if a space is unavailable on a given date.
 
 
 As a guest,
-So I have a chance to find a space, 
+So I have a chance to find a space,
 I can still book a space until the host has confirmed a request for hire.
 
 ```
