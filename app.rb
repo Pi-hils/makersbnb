@@ -3,6 +3,7 @@ require 'rack-flash'
 require_relative './models/database_start_script'
 require_relative './models/space'
 require_relative './models/request'
+require_relative './models/user'
 
 class MakersBnb < Sinatra::Base
 
@@ -11,13 +12,18 @@ class MakersBnb < Sinatra::Base
   use Rack::Flash
 
 
-
   get '/login' do
     erb :login
   end
 
-  post '/login' do
-    redirect '/dashboard'
+  post '/session' do
+    user = User.authenticate(email: params['user_email'], password: params['user_password'])
+    if !user || user == 'FAILED2' || user == 'FAILED3'
+      flash[:notice] = 'Invalid information submitted. Login unsuccessful.'
+    else
+      session[:user_id] = user.id
+      redirect '/dashboard'
+    end
   end
 
   get '/dashboard' do
@@ -29,6 +35,8 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/sign_up' do
+    user = User.add(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect '/dashboard'
   end
 
@@ -37,7 +45,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/yourstays' do
-    erb :'your_stays'
+    erb :your_stays
   end
 
   get '/:space_id/space_details' do
@@ -50,7 +58,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces/add' do
-    erb :'add_space'
+    erb :add_space
   end
 
   post '/spaces/:host_id/add' do
