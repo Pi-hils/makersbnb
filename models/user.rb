@@ -19,10 +19,8 @@ class User
 
   def find(name)
     record = DatabaseConnection.query("SELECT name, email FROM users WHERE name ='#{name}'")
-    first_row = record.first
-    first_row.map do |k,v|
-      v
-    end
+
+    
   end
 
 end
