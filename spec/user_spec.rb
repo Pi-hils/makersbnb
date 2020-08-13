@@ -12,4 +12,11 @@ describe User do
      user = User.find(id: 1)
      expect(user.name).to eq('Hilda')
   end
+
+  it '#authentication returns a user' do
+    User.add(name: 'Hilda', email: 'me@example.com', password: 'passw0rd') 
+    user = User.authenticate(email: 'me@example.com', password: 'passw0rd')
+    expect(user.name).to eq 'Hilda'
+  end
+
 end

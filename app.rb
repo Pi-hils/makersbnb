@@ -12,7 +12,6 @@ class MakersBnb < Sinatra::Base
   use Rack::Flash
 
 
-
   get '/login' do
     erb :login
   end
@@ -30,7 +29,9 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/sign_up' do
-    redirect '/dashboard'
+   User.add(name: params[:name], email: params[:email], password: params[:password])
+   p params
+   redirect '/dashboard'
   end
 
   get '/hostings' do
