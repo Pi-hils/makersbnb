@@ -13,25 +13,23 @@
               <div class="col-md-8  mx-auto text-center form p-4">
                   <div class="px-2">
                 <div class='form'>
-                  <form action="" class="justify-content-center" method='post'>
+                  <form action="/spaces/1/add" class="justify-content-center" method='post'>
                         <div class="form-group ">
                           <label for="name">Name</label>
-                          <input type="text" class="form-control" id="name" name="name" placeholder="">
+                          <input type="text" class="form-control" id="name" name="space_name">
                         </div>
                         <div class="form-group">
                           <label for="description">Description</label>
-                          <textarea class="form-control" id="description" name="description" rows="5"></textarea>
+                          <input class="form-control" id="description" name="description" rows="5"></input>
                         </div>
                     <div class="form-group">
                       <label for="price">Price per Night</label>
-                      <input type="text" class="form-control" id="price" name="price" placeholder="">
+                      <input type="text" class="form-control" id="price" name="price">
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
                         <label for="start_date">Available From:</label>
                         <input type="text" class="form-control" name="availability_start" id="start_date">
-                      </div>
-                      <div class="form-group col-md-6"> 
                         <label for="end_date">Available To:</label>
                         <input type="text" class="form-control" name="availability_end" id="end_date">
                       </div>
@@ -48,5 +46,3 @@
   </div>
 </section>
 <br>
-
-
