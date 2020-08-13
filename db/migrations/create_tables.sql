@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS "requests" (
   "guest_id" integer,
   "start_date" date,
   "end_date" date,
+  "response_date" timestamptz,
   "accepted" boolean default NULL
 );
 
