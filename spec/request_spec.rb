@@ -1,14 +1,14 @@
 require_relative './spec_helper'
 
 describe Request do
-  
+
   before 'generate a master' do
     generate_example_master
     generate_example_user
     generate_example_space
     generate_more_spaces
   end
-  
+
   it '#add creates a new request' do
     request = Request.add(space_id: '1', guest_id: '2', start_date: '13/08/2020', end_date: '14/08/2020')
     expect(request.guest_id).to eq '2'
@@ -40,6 +40,5 @@ describe Request do
     expect(request.space_id).to eq '4'
     expect(request.status).to eq 'DECLINED'
   end
-
 
 end
