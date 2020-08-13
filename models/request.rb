@@ -12,10 +12,9 @@ class Request
   end
 
   def self.add(space_id:, guest_id:, start_date:, end_date:)
-    p Date.parse(start_date).strftime('%Y/%m/%d')
-  request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(start_date).strftime('%Y/%m/%d')}') RETURNING *")
-  p request.first
-  p request_wrapper(request).first
+    Date.parse(start_date).strftime('%Y/%m/%d')
+    request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(start_date).strftime('%Y/%m/%d')}') RETURNING *")
+    request_wrapper(request).first
   end
 
   # THE HOST VIEWING THEIR OWN REQUESTS || TODO: PORT TO USER CLASS
