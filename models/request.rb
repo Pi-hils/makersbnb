@@ -34,7 +34,7 @@ class Request
     @space = Spaces.space_wrapper(space_data).first
   end
 
-  # Change SELECT name to SELECT name, email to get additional information
+
   def get_host_info(space_id)
     host_info = DatabaseConnection.query("SELECT id, name, email FROM users WHERE id =(SELECT host_id FROM spaces WHERE id=#{space_id});")
                                   .first
