@@ -26,4 +26,12 @@ describe Request do
     expect(requests.first.space.price).to eq '550.00'
   end
 
+  it '#accept' do
+    Request.add(space_id: '4', guest_id: '1', start_date: '13/08/2020', end_date: '14/08/2020')
+    request = Request.accept(id: 1)
+    expect(request.space_id).to eq '4'
+    expect(request.status).to eq 'ACCEPTED'
+  end
+
+
 end

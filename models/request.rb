@@ -1,10 +1,10 @@
 require_relative './space'
 
 class Request
-  attr_reader :id, :space_id, :guest_id, :status, :start_date, :end_date, :host_id, :host_email, :host_name, :space
+  attr_reader :id, :space_id, :guest_id, :status, :start_date, :end_date, :host_id, :host_email, :host_name, :space, :response_date
 
-  def initialize(id:, space_id:, guest_id:, accepted:, start_date:, end_date:)
-    @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted)
+  def initialize(id:, space_id:, guest_id:, accepted:, start_date:, end_date:, response_date:)
+    @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted); @response_date = response_date
     @start_date = Date.parse(start_date).strftime('%d/%m/%Y'); @end_date = Date.parse(end_date).strftime('%d/%m/%Y')
     get_host_info(space_id)
     get_space_info(space_id)
@@ -22,8 +22,8 @@ class Request
   end
 
   def get_status(accepted)
-    return 'ACCEPTED' if accepted == 't'
-    return 'DENIED' if accepted == 'f'
+    return 'ACCEPTED' if accepted == 't' || accepted == true
+    return 'DENIED' if accepted == 'f' || accepted == false
 
     'UNCONFIRMED'
   end
@@ -40,13 +40,12 @@ class Request
     @host_id = host_info['id']; @host_name = host_info['name']; @host_email = host_info['email']
   end
 
-  def accept
-    @accepted = true
-    # Sends acceptance message to user
-    # Changes space bookable status to false
+  def self.accept(id:)
+    accepted_request = DatabaseConnection.query("UPDATE requests SET accepted = true WHERE id = #{id} RETURNING *")
+    request_wrapper(accepted_request).first
   end
 
-  def decline
+  def self.decline
     @accepted = false
     # Sends rejection message to user
   end
@@ -56,9 +55,10 @@ class Request
       Request.new(id: request['id'],
                   space_id: request['space_id'],
                   guest_id: request['guest_id'],
-                  accepted: request['status'],
+                  accepted: request['accepted'],
                   start_date: request['start_date'],
-                  end_date: request['end_date'])
+                  end_date: request['end_date'],
+                  response_date: request['response_date'])
     end
   end
 
