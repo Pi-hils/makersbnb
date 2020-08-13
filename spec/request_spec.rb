@@ -10,7 +10,7 @@ describe Request do
   end
   
   it '#add creates a new request' do
-    request = Request.add(space_id: '1', guest_id: '2', start_date: '13/08/2020', end_date: '14/08/2020')
+    p request = Request.add(space_id: '1', guest_id: '2', start_date: '13/08/2020', end_date: '14/08/2020')
     expect(request.guest_id).to eq '2'
     expect(request.host_id).to eq '1'
     expect(request.host_name).to eq 'master'
