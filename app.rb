@@ -36,13 +36,20 @@ class MakersBnb < Sinatra::Base
     erb :your_hostings
   end
 
+  get '/yourstays' do
+    erb :'your_stays'
+  end
+
   get '/space_details' do
     erb :space_details
   end
 
   get '/' do
-    'Welcome to MakersBnb'
     erb(:login) # Needs to be resolved to an actual route
+  end
+
+  get '/spaces/add' do
+    erb :'add_space'
   end
 
   post '/spaces/add' do
@@ -57,4 +64,5 @@ class MakersBnb < Sinatra::Base
     erb(:view_spaces)
   end
 
+  
 end
