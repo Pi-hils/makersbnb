@@ -16,11 +16,16 @@ class MakersBnb < Sinatra::Base
     erb :login
   end
 
-  post '/login' do
+  post '/session' do
+    p params
+    User.authenticate(email: params['user_name'], password: params['user_password'])
+    session[:user_id] = user.id
     redirect '/dashboard'
   end
 
   get '/dashboard' do
+    p params
+     @user = User.find(id: session[:user_id])
     erb :dashboard
   end
 
@@ -39,7 +44,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/yourstays' do
-    erb :'your_stays'
+    erb :your_stays
   end
 
   get '/:space_id/space_details' do
@@ -52,7 +57,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/spaces/add' do
-    erb :'add_space'
+    erb :add_space
   end
 
   post '/spaces/:host_id/add' do
