@@ -19,20 +19,20 @@ class User
 
   def self.find(id:)
     user = DatabaseConnection.query("SELECT id, email, name FROM users WHERE id = #{id}")
-   user_wrapper(user).first
+    user_wrapper(user).first
   end
 
   def self.user_wrapper(query_result)
-   query_result.map { |record| 
+    query_result.map { |record|
       User.new(id: record['id'], name: record['name'], email: record['email'])
     }
   end
 
   def self.authenticate(email:, password:)
     user = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
-    return p "FAILED" unless user.any?
+    return p 'FAILED2' if user.nil?
     return user_wrapper(user).first if password == user.first['password']
-    return p "FAILED" unless BCrypt::Password.new(user.first['password']) == password
+    return p 'FAILED3' unless BCrypt::Password.new(user.first['password']) == password
 
     user_wrapper(user).first
   end

@@ -17,15 +17,16 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/session' do
-    p params
-    User.authenticate(email: params['user_name'], password: params['user_password'])
-    session[:user_id] = user.id
-    redirect '/dashboard'
+    user = User.authenticate(email: params['user_email'], password: params['user_password'])
+    if !user || user == 'FAILED2' || user == 'FAILED3'
+      flash[:notice] = 'Invalid information submitted. Login unsuccessful.'
+    else
+      session[:user_id] = user.id
+      redirect '/dashboard'
+    end
   end
 
   get '/dashboard' do
-    p params
-     @user = User.find(id: session[:user_id])
     erb :dashboard
   end
 
@@ -34,9 +35,9 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/sign_up' do
-   User.add(name: params[:name], email: params[:email], password: params[:password])
-   p params
-   redirect '/dashboard'
+    user = User.add(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/dashboard'
   end
 
   get '/hostings' do
