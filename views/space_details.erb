@@ -2,11 +2,19 @@
 <%# this will be interpolated to hold the name of the selected space the guest wishes to stay %>
 <h1><%= @space.name %></h1>
 </div>
-
-<div>
-  <h3><%= @space.description %></h3>
-  <br>
-  <h3><%= @space.price %> per night</h3>
-  <br>
-  <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
+<div class="row text-black">
+    <div class="col-md-8  mx-auto text-center form p-4">
+        <div class="px-2">
+            <h3><%= @space.description %></h3>
+              <br>
+            <h3>£<%= @space.price %> per night</h3>
+              <br>
+            <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
+          <form action="/<%= 1 %>/<%= @space.id %>/request/new" method="post">
+            <input type="text" name="start_date">
+            <input type="text" name="end_date">
+            <input type="submit" value="Request To Book">
+          </form>
+        </div>
+    </div>
 </div>
