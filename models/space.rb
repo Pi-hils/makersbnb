@@ -31,6 +31,11 @@ class Spaces
     space_wrapper(space).first
   end
 
+  def self.update(space_id:, availability_start:, availability_end:, description:, price:)
+    space = DatabaseConnection.query("UPDATE spaces SET availability_start = '#{Date.parse(availability_start)}', availability_end = '#{Date.parse(availability_end)}', description = '#{description}', price = #{price} WHERE id = #{space_id} RETURNING *;")
+    space_wrapper(space).first
+  end
+
   def self.space_wrapper(query_result)
     query_result.map { |record|
       Spaces.new(id: record['id'],
