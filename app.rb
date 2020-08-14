@@ -123,4 +123,9 @@ class MakersBnb < Sinatra::Base
     redirect '/login'
   end
 
+  delete '/request/cancel/:request_id' do
+    Request.cancel(id: params[:request_id])
+    redirect '/your_stays'
+  end
+
 end
