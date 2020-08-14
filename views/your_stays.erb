@@ -8,20 +8,24 @@
     <div class="px-2">
       <div class='form'>
         <div class="list-group">
-          <% @stays.each do |stay| %>
-            <a href="/<%= stay.space_id %>/space_details" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1"><%= stay.host_name %>'s place</h5>
-                <h6>Status: <%= stay.status %></h6>
-                <h6>Dates: <%= stay.start_date %> - <%= stay.end_date %></h6>
-                <!-- <input type="button" value="delete"> -->
+          <% if @stays.size > 0 %>
+            <% @stays.each do |stay| %>
+              <a href="/<%= stay.space_id %>/space_details" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><%= stay.host_name %>'s place</h5>
+                  <h6>Status: <%= stay.status %></h6>
+                  <h6>Dates: <%= stay.start_date %> - <%= stay.end_date %></h6>
+                  <!-- <input type="button" value="delete"> -->
 
-                <form action="/request/cancel/<%= stay.id %>" method="post">
-                  <input type='hidden' name='_method' value='DELETE'/>
-                  <input type="submit" value="Delete" />
-                </form>
-              </div>
-            </a>
+                  <form action="/request/cancel/<%= stay.id %>" method="post">
+                    <input type='hidden' name='_method' value='DELETE'/>
+                    <input type="submit" value="Delete" />
+                  </form>
+                </div>
+              </a>
+            <% end %>
+          <% else %>
+            <h4>You have no requests to view</h4>
           <% end %>
         </div>
       </div>

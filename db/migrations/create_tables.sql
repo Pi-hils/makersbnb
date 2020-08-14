@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS "user_messages" (
 CREATE TABLE IF NOT EXISTS "message" (
   "id" serial primary key,
   "content" varchar(280),
-  "published" date,
+  "published" timestamp default (now() at time zone 'utc'),
   "poster_id" integer
 );
 

@@ -1,14 +1,16 @@
 require_relative './space'
+require_relative './message'
 
 class Request
 
   attr_reader :id, :space_id, :guest_id, :status, :start_date, :end_date, :host_id, :host_email, :host_name, :space, :response_date
-  attr_reader :guest_email, :guest_name
+  attr_reader :guest_email, :guest_name, :messages
 
   def initialize(id:, space_id:, guest_id:, accepted:, start_date:, end_date:, response_date:)
     @id = id; @space_id = space_id; @guest_id = guest_id;  @status = get_status(accepted)
     @response_date = response_date ? DateTime.parse(response_date).strftime('%d/%m/%Y %k:%M:%S') : nil
     @start_date = Date.parse(start_date).strftime('%d/%m/%Y'); @end_date = Date.parse(end_date).strftime('%d/%m/%Y')
+    @messages = thread_list
     get_host_info(space_id)
     get_space_info(space_id)
     get_guest_info(id)
@@ -19,6 +21,11 @@ class Request
 
     request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(end_date).strftime('%Y/%m/%d')}') RETURNING *")
     request_wrapper(request).first
+  end
+
+  def thread_list
+    message = DatabaseConnection.query("SELECT * FROM message WHERE message.id IN (SELECT user_messages.message_id FROM user_messages WHERE user_messages.thread_id = #{@id}) ORDER BY published DESC")
+    Message.message_wrapper(message)
   end
 
   def self.validate_dates(space_id:, start_date:, end_date:)
@@ -114,4 +121,5 @@ class Request
     DatabaseConnection.query("UPDATE spaces SET bookable = true WHERE spaces.id = (SELECT space_id FROM requests WHERE requests.id = #{id});")
     DatabaseConnection.query("DELETE FROM requests WHERE id = #{id};")
   end
+
 end

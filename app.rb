@@ -4,6 +4,8 @@ require_relative './models/database_start_script'
 require_relative './models/space'
 require_relative './models/request'
 require_relative './models/user'
+require_relative './models/message'
+require_relative './models/user-messages'
 
 class MakersBnb < Sinatra::Base
 
@@ -136,6 +138,12 @@ class MakersBnb < Sinatra::Base
     Spaces.update(space_id: params[:space_id], availability_start: params[:availability_start],
                   availability_end: params[:availability_end], price: params[:price], description: params[:description])
     redirect "/#{params[:space_id]}/space_details"
+  end
+
+  post '/:user_id/:request_id/message/new' do
+    message = Message.add(poster_id: params[:user_id], content: params[:content])
+    UserMessages.add(thread_id: params[:request_id], message_id: message.id, user_id: params[:user_id])
+    redirect '/your_hostings'
   end
 
 end
