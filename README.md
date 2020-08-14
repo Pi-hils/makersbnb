@@ -1,4 +1,10 @@
-## App Mockup
+<img src="https://user-images.githubusercontent.com/55639318/90200485-e51be200-ddcf-11ea-921c-23553ea1f6c3.png">
+
+## Airbnb Clone Web App
+
+<br>
+
+## Mockup
 
 <img src="https://user-images.githubusercontent.com/55639318/90190223-8433e000-ddb6-11ea-99a3-7713e3284443.png">
 
