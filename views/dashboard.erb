@@ -1,14 +1,13 @@
 <style>
   body {
-  background-image: url('img_girl.jpg');
+  background-image: url('https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80');
 }
 </style>
 <section id="cover" class="min-vh-100">
-      <div class="container" style="background-image: url('https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80')">
-          <div class="row text-black">
+      <div class="container">
               <div class="col-md-8  mx-auto text-center form p-4">
                   <div class="px-2">
-                    <p><strong>Welcome to your dashboard, <%= @user.name.capitalize %> </strong></p>
+                    <h1>Welcome to your dashboard, <%= @user.name.capitalize %> </h1>
                 <button class="btn" style="border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"><a href="/spaces"><i class="fa fa-home"></i>View Spaces</a></button>
                 <button class="btn" style="border-radius: 50%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"><a href="/spaces/new"><i class="fa fa-home"></i> Add a Space</a></button>
                 <br>
