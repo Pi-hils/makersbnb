@@ -146,4 +146,10 @@ class MakersBnb < Sinatra::Base
     redirect '/your_hostings'
   end
 
+  post '/:user_id/:request_id/message/new/stays' do
+    message = Message.add(poster_id: params[:user_id], content: params[:content])
+    UserMessages.add(thread_id: params[:request_id], message_id: message.id, user_id: params[:user_id])
+    redirect '/your_stays'
+  end
+
 end

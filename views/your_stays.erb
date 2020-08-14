@@ -32,3 +32,21 @@
     </div>
   </div>
 </div>
+
+<br><br>
+<div style="margin: 0 auto; width: 600px; height: auto; border-radius:15px; border: 5px solid black; padding: 10px;">
+  <% @stays.each do |request| %>
+    <% if request.status == 'ACCEPTED' %>
+      <% request.messages.each do |message| %>
+        <b><%=  message.poster_name %></b> posted: <%= message.content %> on <%= message.published %>
+        <br>
+      <% end %>
+      <br><br>
+      <form action="/<%= @user.id %>/<%= request.id %>/message/new/stays" method="post">
+        <label for="content">Respond</label>
+        <input type='text' name='content' id=content>
+        <input type='submit' value='Submit'>
+      </form>
+    <% end %>
+  <% end %>
+</div>
