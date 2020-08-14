@@ -110,4 +110,8 @@ class Request
     end
   end
 
+  def self.cancel(id:)
+    DatabaseConnection.query("UPDATE spaces SET bookable = true WHERE spaces.id = (SELECT space_id FROM requests WHERE requests.id = #{id});")
+    DatabaseConnection.query("DELETE FROM requests WHERE id = #{id};")
+  end
 end
