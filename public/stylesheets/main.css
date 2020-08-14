@@ -1,5 +1,5 @@
 .heading h1{
-  color:black;
+  color:red;
   font-weight: bold;
   font-size: 50px;
   text-align: center;
@@ -48,7 +48,7 @@ label {
 }
 
 .btn{
-  background-color: #4a997fec;
+  background-color: red;
   border: none;
   color:white;
   padding: 40px 30px;
@@ -65,7 +65,7 @@ label {
 }
 
 .btn:hover {
-    background-color: RoyalBlue;
+    background-color: grey;
   }
 
 .btn a {
@@ -90,7 +90,17 @@ label {
   height: 70px;
   width: 100%;
   margin-top: 70px;
-  background-color: rgba(70, 69, 69, 0.055); 
+  background-color: rgba(70, 69, 69, 0.055);
   color: black;
   text-align: center;
+}
+
+.logo image {
+  position: absolute;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.bttn btn-primary {
+color: red;
 }
