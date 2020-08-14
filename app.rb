@@ -123,4 +123,8 @@ class MakersBnb < Sinatra::Base
     redirect '/login'
   end
 
+  get '/about' do
+    erb :about_us
+  end
+
 end
