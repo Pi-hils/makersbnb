@@ -90,8 +90,13 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/:guest_id/:space_id/request/new' do
-    Request.add(space_id: params[:space_id], guest_id: params[:guest_id], start_date: params[:start_date], end_date: params[:end_date])
-    redirect '/your_stays'
+    request = Request.add(space_id: params[:space_id], guest_id: params[:guest_id], start_date: params[:start_date], end_date: params[:end_date])
+    if !request
+      flash[:notice] = 'This space is not available for those dates, please try again'
+      redirect "/#{params[:space_id]}/space_details"
+    else
+      redirect '/your_stays'
+    end
   end
 
   patch '/request/accept/:request_id' do

@@ -1,7 +1,8 @@
 <div class='heading'>
+  <br><br>
 <h1>Your bookings</h1>
 </div>
-
+<br><br>
 <div class="row text-black">
   <div class="col-md-8  mx-auto text-center form p-4">
     <div class="px-2">
@@ -11,8 +12,8 @@
             <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= stay.host_name %>'s place</h5>
-                <h6>Request status: <%= stay.status %></h6>
-                <h6>Dates requested " <%= stay.start_date %> TO <%= stay.end_date %>"</h6>
+                <h6>Status: <%= stay.status %></h6>
+                <h6>Dates: <%= stay.start_date %> - <%= stay.end_date %></h6>
                 <input type="button" value="Cancel Request">
               </div>
             </a>
@@ -31,7 +32,7 @@
               <h5 class="mb-1">Mark's Place</h5>
               <h6>Request Pending</h6>
               <h6>Dates</h6>
-              <input type="button" value="Cancel Request">
+              <input type="button" value="Delete request">
             </div>
           </a>
         </div>
