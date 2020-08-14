@@ -10,13 +10,35 @@
             <h3>£<%= @space.price %> per night</h3>
               <br>
             <h3>Available from <%= @space.availability_start %> until <%= @space.availability_end %></h3>
+          <br><br>
           <form action="/<%= @user.id %>/<%= @space.id %>/request/new" method="post">
-            <input type="text" name="start_date">
-            <input type="text" name="end_date">
+            <label for="start_date">Book from:  </label><input type="text" name="start_date" id='start_date'>
+            <label for="end_date">Book from:  </label> <input type="text" name="end_date" id='end_date'>
             <input type="submit" value="Request To Book">
           </form>
         </div>
     </div>
+</div>
+<br><br>
+<div class="row text-black">
+  <div class="col-md-8  mx-auto text-center form p-4">
+    <div class="px-2">
+      <% if @space.host_id == @user.id %>
+      <h2> Update space details </h2>
+        <h7>(Optional)</h7>
+        <br><br>
+        <form action="/spaces/<% @space.id %>" method="post">
+          <input type="hidden" type="hidden" name="_method" value="PATCH">
+          <label for="description">Description</label> <input type="text" value="<%= @space.description %>" id='description' name="description">
+          <label for="price">Price</label> <input type="text" value="<%= @space.price %>" id='price' name='price'>
+          <label for="starting">Available from: </label> <input type="text" value="<%= @space.availability_start %>" id='starting' name='availability_start'>
+          <label for="ending">Available to: </label> <input type="text" value="<%= @space.availability_end %>" id='ending' name='availability_end'>
+          <br><br>
+          <input type='submit' value='Submit changes' formaction="/spaces/<%= @space.id %>">
+        </form>
+      <% end %>
+    </div>
+  </div>
 </div>
 <br><br>
 <h6 style="text-align: center">

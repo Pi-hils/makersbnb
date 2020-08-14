@@ -9,7 +9,7 @@
       <div class='form'>
         <div class="list-group">
           <% @stays.each do |stay| %>
-            <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+            <a href="/<%= stay.space_id %>/space_details" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1"><%= stay.host_name %>'s place</h5>
                 <h6>Status: <%= stay.status %></h6>

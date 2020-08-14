@@ -127,5 +127,11 @@ class MakersBnb < Sinatra::Base
     Request.cancel(id: params[:request_id])
     redirect '/your_stays'
   end
+  
+  patch '/spaces/:space_id' do
+    Spaces.update(space_id: params[:space_id], availability_start: params[:availability_start],
+                  availability_end: params[:availability_end], price: params[:price], description: params[:description])
+    redirect "/#{params[:space_id]}/space_details"
+  end
 
 end

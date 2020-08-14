@@ -13,9 +13,9 @@
               Please select <strong>Accept</strong> or <strong>Decline</strong>
             </p>
             <% @requests.each do |request| %>
-            <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+            <a href="/<%= request.space_id %>/space_details" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">SPACE: <%= request.host_name %>'s <%= request.space.name %></h5>
+                <h5 class="mb-1">SPACE: <%= request.host_name %>"s <%= request.space.name %></h5>
                 <h6>Status: <%= request.status %> </h6>
                 <br>
                  <h6>Guest: <%= request.guest_name %> (<%= request.guest_email %>) </h6>
