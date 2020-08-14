@@ -59,4 +59,17 @@ describe Request do
     expect(request).not_to eq nil
   end
 
+  it '#cancel_request' do
+    Request.add(space_id: '4', guest_id: '1', start_date: '13/08/2020', end_date: '14/08/2020')
+    accepted_request = Request.accept(id: 1)
+    expect(accepted_request.status).to eq 'ACCEPTED'
+    bookable = DatabaseConnection.query("SELECT bookable FROM spaces WHERE id = 4;").first
+    expect(bookable['bookable']).to eq 'f'
+    Request.cancel(id: 1)
+    bookable = DatabaseConnection.query("SELECT bookable FROM spaces WHERE id = 4;").first
+    expect(bookable['bookable']).to eq 't'
+    request = DatabaseConnection.query("SELECT * FROM requests WHERE id = 1;").first
+    expect(request).to eq nil
+  end
+
 end
