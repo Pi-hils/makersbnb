@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/55639318/90200485-e51be200-ddcf-11ea-921c-23553ea1f6c3.png">
 
-## Airbnb Clone Webapp
+## Airbnb Clone Web App
 
 <br>
 
