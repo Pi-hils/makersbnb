@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/app.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/app.rb": {
         "lines": [
           1,
           1,
@@ -56,6 +56,17 @@
           1,
           0,
           0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
           null,
           null,
           1,
@@ -65,13 +76,6 @@
           null,
           1,
           0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
           0,
           null,
           null,
@@ -79,6 +83,7 @@
           null,
           null,
           1,
+          0,
           0,
           0,
           null,
@@ -92,7 +97,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_start_script.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/database_start_script.rb": {
         "lines": [
           1,
           null,
@@ -106,7 +111,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/database_connection.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/database_connection.rb": {
         "lines": [
           1,
           null,
@@ -123,7 +128,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/space.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/space.rb": {
         "lines": [
           1,
           null,
@@ -175,7 +180,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/request.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/request.rb": {
         "lines": [
           1,
           null,
@@ -252,7 +257,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/models/user.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/models/user.rb": {
         "lines": [
           1,
           1,
@@ -297,7 +302,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/spec/request_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/request_spec.rb": {
         "lines": [
           1,
           null,
@@ -354,7 +359,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/spec/spaces_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/spaces_spec.rb": {
         "lines": [
           1,
           null,
@@ -387,7 +392,7 @@
           null
         ]
       },
-      "C:/Users/Danie/Desktop/Makers/MakersBnBMain/makersbnb/spec/user_spec.rb": {
+      "/Users/hilda.amp/Projects/makersbnb/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -414,6 +419,6 @@
         ]
       }
     },
-    "timestamp": 1597344717
+    "timestamp": 1597355716
   }
 }
