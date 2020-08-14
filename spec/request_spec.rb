@@ -50,4 +50,13 @@ describe Request do
     expect(stays.first.status).to eq 'DECLINED'
   end
 
+  it '#validate_dates' do
+    Spaces.add(name: "Amazing Shatou", price: 500, description: "Spacious master", availability_start: "12/08/2020", availability_end: "18/08/2020", host_id: 1)
+    request = Request.add(space_id: '6', guest_id: '1', start_date: '11/08/2020', end_date: '14/08/2020')
+    expect(Request.validate_dates(space_id: 6, start_date: '16/08/2020', end_date: '18/08/2020')).to eq true
+    expect(request).to eq nil
+    request = Request.add(space_id: '6', guest_id: '1', start_date: '12/08/2020', end_date: '14/08/2020')
+    expect(request).not_to eq nil
+  end
+
 end

@@ -1,6 +1,6 @@
 <div class='heading'>
-<%# this will be interpolated to hold the name of the selected space the guest wishes to stay %>
 <h1><%= @space.name %></h1>
+  <br><br>
 </div>
 <div class="row text-black">
     <div class="col-md-8  mx-auto text-center form p-4">
@@ -18,3 +18,7 @@
         </div>
     </div>
 </div>
+<br><br>
+<h6 style="text-align: center">
+  <%= flash[:notice] %>
+</h6>

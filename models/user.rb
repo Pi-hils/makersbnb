@@ -30,6 +30,7 @@ class User
 
   def self.authenticate(email:, password:)
     user = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return p 'FAILED1' if user_wrapper(user).first.nil?
     return p 'FAILED2' if user.nil?
     return user_wrapper(user).first if password == user.first['password']
     return p 'FAILED3' unless BCrypt::Password.new(user.first['password']) == password

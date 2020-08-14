@@ -15,9 +15,34 @@ class Request
   end
 
   def self.add(space_id:, guest_id:, start_date:, end_date:)
-    Date.parse(start_date).strftime('%Y/%m/%d')
+    return unless validate_dates(space_id: space_id, start_date: start_date, end_date: end_date)
+
     request = DatabaseConnection.query("INSERT INTO requests (space_id, guest_id, start_date, end_date) VALUES('#{space_id}','#{guest_id}','#{Date.parse(start_date).strftime('%Y/%m/%d')}','#{Date.parse(end_date).strftime('%Y/%m/%d')}') RETURNING *")
     request_wrapper(request).first
+  end
+
+  def self.validate_dates(space_id:, start_date:, end_date:)
+    dates = DatabaseConnection.query("SELECT availability_start, availability_end FROM spaces WHERE id = #{space_id}").first
+    a_start = Date.parse(dates['availability_start']); a_end = Date.parse(dates['availability_end'])
+    compare_starts(start_date: start_date, a_start: a_start) && compare_ends(end_date: end_date, a_end: a_end)
+  end
+
+  # -1 is a date "lesser" than the availability and therefore a bad value
+  def self.compare_starts(start_date:, a_start:)
+    return false if (Date.parse(start_date).strftime('%d') <=> a_start.strftime('%d')) == -1
+    return false if (Date.parse(start_date).strftime('%m') <=> a_start.strftime('%m')) == -1
+    return false if (Date.parse(start_date).strftime('%Y') <=> a_start.strftime('%Y')) == -1
+
+    true
+  end
+
+  # 1 is date "greater" than the availability nd therefore a bad value
+  def self.compare_ends(end_date:, a_end:)
+    return false if (Date.parse(end_date).strftime('%d') <=> a_end.strftime('%d')) == 1
+    return false if (Date.parse(end_date).strftime('%m') <=> a_end.strftime('%m')) == 1
+    return false if (Date.parse(end_date).strftime('%Y') <=> a_end.strftime('%Y')) == 1
+
+    true
   end
 
   # THE HOST VIEWING THEIR OWN REQUESTS || TODO: PORT TO USER CLASS
