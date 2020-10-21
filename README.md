@@ -91,3 +91,6 @@ So I have a chance to find a space,
 I can still book a space until the host has confirmed a request for hire.
 
 ```
+
+### Deployment
+Heroku
