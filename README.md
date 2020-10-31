@@ -92,5 +92,5 @@ I can still book a space until the host has confirmed a request for hire.
 
 ```
 
-### Deployment
-Heroku
+<!-- ### Deployment
+Heroku -->
